@@ -1,7 +1,9 @@
 <?php
+
 include_once "models/Cart.php";
 
 class CartController {
+
     private $cart;
 
     public function __construct() {
@@ -15,5 +17,10 @@ class CartController {
     public function remove($id) {
         $this->cart->remove($id);
     }
+
+    public function getCart() {
+        return $this->cart->getCart();
+    }
 }
+
 ?>

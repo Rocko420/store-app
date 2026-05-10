@@ -1,7 +1,9 @@
 <?php
+
 include_once "models/Product.php";
 
 class ProductController {
+
     private $productModel;
 
     public function __construct($db) {
@@ -11,5 +13,10 @@ class ProductController {
     public function catalog() {
         return $this->productModel->getAllProducts();
     }
+
+    public function getProduct($id) {
+        return $this->productModel->getProductById($id);
+    }
 }
+
 ?>

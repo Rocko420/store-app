@@ -3,11 +3,19 @@
 class Cart {
 
     public function add($id) {
+
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
+        }
+
         $_SESSION['cart'][$id] = ($_SESSION['cart'][$id] ?? 0) + 1;
     }
 
     public function remove($id) {
-        if (!isset($_SESSION['cart'][$id])) return;
+
+        if (!isset($_SESSION['cart'][$id])) {
+            return;
+        }
 
         $_SESSION['cart'][$id]--;
 
@@ -20,4 +28,5 @@ class Cart {
         return $_SESSION['cart'] ?? [];
     }
 }
+
 ?>
